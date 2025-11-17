@@ -2,6 +2,13 @@
 
 A Flutter app for finding shortlet apartments in Abuja, Nigeria and other Nigerian cities.
 
+## Screenshots
+
+<div align="center">
+  <img src="Simulator Screenshot - iPhone 16 Pro - 2025-11-17 at 00.46.30.png" width="300" alt="App Screenshot 1">
+  <img src="Simulator Screenshot - iPhone 16 Pro - 2025-11-17 at 00.46.42.png" width="300" alt="App Screenshot 2">
+</div>
+
 ## Features
 
 - 🔐 Auth0 authentication
