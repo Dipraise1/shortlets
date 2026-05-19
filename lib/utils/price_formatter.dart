@@ -18,5 +18,9 @@ class PriceFormatter {
   static String formatNairaPerNight(double price) {
     return '${formatNaira(price)}/night';
   }
+
+  static String formatNairaPerMonth(double price) {
+    return '${formatNaira(price)}/month';
+  }
 }
 

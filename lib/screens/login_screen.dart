@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../services/auth_service.dart';
 import 'home_screen.dart';
 import 'signup_screen.dart';
+import '../services/lister_service.dart';
+import 'lister_dashboard_screen.dart';
+import 'lister_verification_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -250,7 +253,59 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 16),
+
+              // Lister entry point
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[200]!),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  leading: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(Icons.home_work_rounded,
+                        size: 20, color: Colors.black),
+                  ),
+                  title: Text('I\'m a property lister',
+                      style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black)),
+                  subtitle: Text('Manage listings & rental requests',
+                      style: GoogleFonts.inter(
+                          fontSize: 12, color: Colors.grey[500])),
+                  trailing: const Icon(Icons.arrow_forward_ios_rounded,
+                      size: 14, color: Colors.grey),
+                  onTap: () async {
+                    final status =
+                        await ListerService.getVerificationStatus();
+                    if (!context.mounted) return;
+                    if (status == 'unverified') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) =>
+                                const ListerVerificationScreen()),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) =>
+                                const ListerDashboardScreen()),
+                      );
+                    }
+                  },
+                ),
+              ),
+              const SizedBox(height: 32),
             ],
           ),
         ),

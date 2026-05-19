@@ -162,6 +162,8 @@ class ApartmentService {
           rating: rating,
           reviewerName: 'Guest',
           reviewerImage: 'https://i.pravatar.cc/150?img=33',
+          propertyType: 'apartment',
+          listingType: 'shortlet',
         );
 
         properties.add(property);
@@ -189,15 +191,14 @@ class ApartmentService {
 
   /// Get fallback properties based on city
   static List<Property> _getFallbackProperties(String? city) {
-    if (city == null || city == 'Abuja') {
-      return PropertyData.getAbujaProperties();
-    } else if (city == 'Lagos') {
+    if (city == 'Lagos') {
       return PropertyData.getLagosProperties();
     } else if (city == 'Port Harcourt') {
       return PropertyData.getPortHarcourtProperties();
+    } else if (city == 'Abuja') {
+      return PropertyData.getAbujaProperties();
     } else {
-      // Return mixed properties for Nigeria-wide
-      return PropertyData.getAllNigeriaProperties();
+      return PropertyData.getAllProperties();
     }
   }
 

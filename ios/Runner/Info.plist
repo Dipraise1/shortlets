@@ -58,5 +58,11 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Rosera needs access to your photo library to upload property images.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Rosera needs camera access to take photos of your property.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Rosera needs permission to save photos.</string>
 </dict>
 </plist>
