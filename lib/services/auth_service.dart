@@ -93,8 +93,26 @@ class AuthService {
       await prefs.remove('user_name');
       await prefs.remove('user_email');
       await prefs.remove('user_picture');
+      await prefs.remove('is_demo');
     } catch (e) {
       print('Logout error: $e');
+    }
+  }
+
+  // Demo login — skips Auth0, uses hardcoded guest profile
+  static Future<bool> demoLogin() async {
+    try {
+      _credentials = null;
+      _userProfile = null;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('user_name', 'Demo User');
+      await prefs.setString('user_email', 'demo@rosera.app');
+      await prefs.setString('user_picture', 'https://i.pravatar.cc/150?img=12');
+      await prefs.setBool('is_demo', true);
+      return true;
+    } catch (e) {
+      print('Demo login error: $e');
+      return false;
     }
   }
 

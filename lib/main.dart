@@ -22,16 +22,16 @@ void main() async {
     clientId: AuthConfig.clientId,
   );
   
-  runApp(const ShortletApp());
+  runApp(const RoseraApp());
 }
 
-class ShortletApp extends StatelessWidget {
-  const ShortletApp({super.key});
+class RoseraApp extends StatelessWidget {
+  const RoseraApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shortlet Apartments Abuja',
+      title: 'Rosera',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,

@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Image.asset(
-                          'assets/images/logo.jpeg',
+                          'assets/images/logo.png',
                           width: 120,
                           height: 120,
                           fit: BoxFit.cover,
@@ -117,7 +117,7 @@ class _SplashScreenState extends State<SplashScreen>
                     const SizedBox(height: 24),
                     // App Name
                     Text(
-                      'Shortlet Apartments',
+                      'Rosera',
                       style: GoogleFonts.inter(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,

@@ -13,6 +13,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
+  bool _isDemoLoading = false;
+
+  Future<void> _handleDemoLogin() async {
+    setState(() => _isDemoLoading = true);
+    try {
+      final success = await AuthService.demoLogin();
+      if (success && mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: ${e.toString()}'), backgroundColor: Colors.red),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isDemoLoading = false);
+    }
+  }
 
   Future<void> _handleLogin() async {
     setState(() {
@@ -82,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      'assets/images/logo.jpeg',
+                      'assets/images/logo.png',
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
@@ -165,7 +187,40 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               const SizedBox(height: 24),
-              
+
+              // Demo Login Button
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: OutlinedButton(
+                  onPressed: (_isLoading || _isDemoLoading) ? null : _handleDemoLogin,
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Color(0xFFD1D5DB)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  child: _isDemoLoading
+                      ? const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1A1A1A)),
+                          ),
+                        )
+                      : Text(
+                          'Continue as Demo',
+                          style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF1A1A1A),
+                          ),
+                        ),
+                ),
+              ),
+              const SizedBox(height: 24),
+
               // Sign Up Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

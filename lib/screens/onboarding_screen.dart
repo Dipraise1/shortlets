@@ -34,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      'assets/images/logo.jpeg',
+                      'assets/images/logo.png',
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
@@ -45,7 +45,7 @@ class OnboardingScreen extends StatelessWidget {
                 
                 // Title
                 Text(
-                  'Find Your Dream\nShortlet Apartment',
+                  'Find Your Dream\nHome with Rosera',
                   style: GoogleFonts.inter(
                     fontSize: 36,
                     fontWeight: FontWeight.w800,
@@ -61,7 +61,7 @@ class OnboardingScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
-                    'Discover premium shortlet apartments in Abuja. Every property is carefully selected to provide you with the best experience.',
+                    'Discover premium properties with Rosera. Every home is carefully selected to provide you with the best experience.',
                     style: GoogleFonts.inter(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,

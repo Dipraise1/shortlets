@@ -1,11 +1,11 @@
 {
-    "name": "shortlet_apartments",
-    "short_name": "shortlet_apartments",
+    "name": "Rosera",
+    "short_name": "Rosera",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Rosera - Find your perfect home",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

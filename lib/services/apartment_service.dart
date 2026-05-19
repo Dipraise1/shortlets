@@ -146,7 +146,7 @@ class ApartmentService {
           location: location,
           price: price,
           imageUrl: imageUrl,
-          description: 'Beautiful shortlet apartment in $location. Perfect for short stays and business trips.',
+          description: 'Beautiful property in $location listed on Rosera. Perfect for short stays and business trips.',
           bedrooms: _estimateBedrooms(name),
           bathrooms: _estimateBathrooms(name),
           propertyArea: '100 sqm',

@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Search shortlet apartments in Abuja...',
+                        'Search properties on Rosera...',
                         style: GoogleFonts.inter(
                           fontSize: 15,
                           color: Colors.grey[600],
